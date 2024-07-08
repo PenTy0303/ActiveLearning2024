@@ -9,34 +9,79 @@ function navigate(url) {
 
 // 増井 追加分
 
+// チャプターデータはベタ打ちで用意ができ次第入力します
 page0VideoDetail = {
-    "videoUrl" : "https://www.youtube-nocookie.com/embed/2vOeY6XCVjc?rel=0&modestbranding=1&controls=0",
+    "subtitle": "近鉄郡山方面の登下校時の危険箇所",
+    "videoUrl" : "https://www.youtube-nocookie.com/embed/2vOeY6XCVjc?rel=0&modestbranding=1&controls=1",
     "chapterDetail" : [
         {
             "sec" : 60,
             "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
             "detail" : "OPが始まります",
         },
         {
-            "sec" : 120,
-            "sub" : "男の子",
-            "detail" : "誰か知りません", 
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
         },
         {
-            "sec" : 120,
-            "sub" : "男の子",
-            "detail" : "誰か知りません", 
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
         },
         {
-            "sec" : 120,
-            "sub" : "男の子",
-            "detail" : "誰か知りません", 
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
         },
         {
-            "sec" : 120,
-            "sub" : "男の子",
-            "detail" : "誰か知りません", 
-        }
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
+        },
+    ],
+    "chapterLength" : 5,
+}
+
+page1VideoDetail = {
+    "subtitle": "大和小泉方面の登下校時の危険箇所",
+    "videoUrl" : "https://www.youtube-nocookie.com/embed/2vOeY6XCVjc?rel=0&modestbranding=1&controls=1",
+    "chapterDetail" : [
+        {
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
+        },
+        {
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
+        },
+        {
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
+        },
+        {
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
+        },
+        {
+            "sec" : 60,
+            "sub" : "OP",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "OPが始まります",
+        },
     ],
     "chapterLength" : 5,
 }
@@ -52,30 +97,45 @@ function secToTime(sec) {
 
 function VideoPageInit(page) {
 
+    let subtitleContainer = document.querySelector(".subtitle-container");
     let videoContainer = document.querySelector(".video-container");
     let videoChapterContainer = document.querySelector(".button-option-container");
+    let container;
 
     if(page == 0) {
-        videoContainer.innerHTML = '<iframe width="560" height="315" src="' + page0VideoDetail["videoUrl"] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-        for(i=0; i<page0VideoDetail["chapterLength"]; i++) {
-            videoChapterContainer.innerHTML += '<div class="button-chapter" id="' +(i+1)+ '">' + 
-            '<button class="option-button" onclick="chapter(0, ' + page0VideoDetail["chapterDetail"][i]["sec"]+')">' + 
-            page0VideoDetail["chapterDetail"][i]["sub"] + '</button>' +
-            '<p class="mouse-over">'+ page0VideoDetail["chapterDetail"][i]["detail"] +'</p></div>';
-        }
+         container = page0VideoDetail;
+        
     } else if (page == 1) {
+        container = page1VideoDetail;
 
     }
+
+    subtitleContainer.innerHTML = "<h2>" + container.subtitle + "</h2>";
+
+    videoContainer.innerHTML = '<iframe src="' + container["videoUrl"] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        for(i=0; i<container["chapterLength"]; i++) {
+            videoChapterContainer.innerHTML += '<div class="button-chapter" id="' +(i+1)+ '">' + 
+            '<button class="option-button" onclick="chapter(0, ' + container["chapterDetail"][i]["sec"]+')">' + 
+            container["chapterDetail"][i]["sub"] + '</button>' +
+            '<p class="mouse-over">'+ container["chapterDetail"][i]["detail"] +'</p></div>';
+        }
 
 }
 
 function chapter(page, sec) {
 
     let videoContainer = document.querySelector(".video-container");
+    let container;
 
     if(page == 0) {
-        videoContainer.innerHTML = '<iframe width="560" height="315" src="' + page0VideoDetail["videoUrl"] + '&start='+sec+'&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-    } else if (page == 1) {
+        container = page0VideoDetail;
+       
+   } else if (page == 1) {
+        container = page1VideoDetail;
 
-    }
+   }
+
+    videoContainer.innerHTML = '<iframe src="' + container["videoUrl"] + '&start='+sec+'&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
 }
+
+// ここまで
