@@ -12,40 +12,71 @@ function navigate(url) {
 // チャプターデータはベタ打ちで用意ができ次第入力します
 page0VideoDetail = {
     "subtitle": "近鉄郡山方面の登下校時の危険箇所",
-    "videoUrl" : "https://www.youtube-nocookie.com/embed/2vOeY6XCVjc?rel=0&modestbranding=1&controls=1",
+    "videoUrl" : "https://www.youtube.com/embed/7527mQ7fpow?rel=0&modestbranding=1&controls=1",
     "chapterDetail" : [
         {
-            "sec" : 60,
-            "sub" : "OP",
+            "sec" : 0,
+            "sub" : "導入",
             "series" : "gts", // gts = goToSchool gth = goToHome
-            "detail" : "OPが始まります",
+            "detail" : "スタート",
         },
         {
-            "sec" : 60,
-            "sub" : "OP",
+            "sec" : 16,
+            "sub" : "正門",
             "series" : "gts", // gts = goToSchool gth = goToHome
-            "detail" : "OPが始まります",
+            "detail" : "奈良高専の正門",
         },
         {
-            "sec" : 60,
-            "sub" : "OP",
+            "sec" : 38,
+            "sub" : "バス停",
             "series" : "gts", // gts = goToSchool gth = goToHome
-            "detail" : "OPが始まります",
+            "detail" : "高専の最寄りのバス停",
         },
         {
-            "sec" : 60,
-            "sub" : "OP",
+            "sec" : 48,
+            "sub" : "富雄川付近",
             "series" : "gts", // gts = goToSchool gth = goToHome
-            "detail" : "OPが始まります",
+            "detail" : "富雄川前の交差点",
         },
         {
-            "sec" : 60,
-            "sub" : "OP",
+            "sec" : 62,
+            "sub" : "ガソリンスタンド",
             "series" : "gts", // gts = goToSchool gth = goToHome
-            "detail" : "OPが始まります",
+            "detail" : "ガソリンスタンドに入る人の邪魔にならないように",
         },
+        {
+            "sec" : 75,
+            "sub" : "小学校前の小道",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "登下校時の学童に注意",
+        },
+        {
+            "sec" : 92,
+            "sub" : "警察に注意",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "ここだけは安全運転",
+        },
+        {
+            "sec" : 114,
+            "sub" : "停止線に注意",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "前もって止まろう",
+        },
+        {
+            "sec" : 127,
+            "sub" : "踏切",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "人が多いので注意",
+        },
+        {
+            "sec" : 138,
+            "sub" : "まとめ",
+            "series" : "gts", // gts = goToSchool gth = goToHome
+            "detail" : "動画の内容どれぐらい覚えているカナ？",
+        },
+
     ],
-    "chapterLength" : 5,
+    "chapterLength" : 10,
 }
 
 page1VideoDetail = {

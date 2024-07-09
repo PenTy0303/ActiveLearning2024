@@ -157,12 +157,11 @@ footer {
 
     .video-container{
         aspect-ratio: 16/9;
-        height:80vw;
+        width:560px;
         max-width: 810px;
     }
 
     .video-container iframe {
-        height: 100%;
         width: 100%;
         
     }
